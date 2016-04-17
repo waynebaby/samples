@@ -1,0 +1,23 @@
+﻿<!--THIS SAMPLE CODE IS PROVIDED FOR THE PURPOSE OF ILLUSTRATION ONLY 
+    AND IS NOT INTENDED TO BE USED IN A PRODUCTION ENVIRONMENT. 
+
+THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY 
+    OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
+    -->
+<Page
+    x:Class="UpdateTemplate.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UpdateTemplate"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Black">
+        <ComboBox x:Name="cbCountries" 
+                  HorizontalAlignment="Stretch" 
+                  Style="{StaticResource DarkComboBoxStyle}"/>
+                  <!--the default combobox provides a gray background that does not fit well with a black theme-->
+    </Grid>
+</Page>

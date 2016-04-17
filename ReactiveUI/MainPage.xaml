@@ -1,0 +1,43 @@
+﻿<!--THIS SAMPLE CODE IS PROVIDED FOR THE PURPOSE OF ILLUSTRATION ONLY 
+    AND IS NOT INTENDED TO BE USED IN A PRODUCTION ENVIRONMENT. 
+
+THIS SAMPLE CODE AND ANY RELATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY 
+    OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
+    -->
+<Page
+    x:Class="ReactiveUI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ReactiveUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="1024"
+    Height="600">
+    <Page.Resources>
+        <local:VisibleConverter x:Key="VisibleConverter"/>
+    </Page.Resources>
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center">url:</TextBlock>
+            <TextBox x:Name="tbUrl" Text="http:\\res2.windows.microsoft.com\resbox\en\windows\main\b0dcafef-ef99-4f96-a059-58634491c806_4.jpg"/>
+            <Button Tapped="OnBindImage">Bind</Button>
+        </StackPanel>
+        <Grid>
+            <Image x:Name="image"
+                   Source="{Binding Uri}"
+                   Stretch="UniformToFill"
+                   VerticalAlignment="Top" HorizontalAlignment="Left"
+                   ImageFailed="OnImageFailed"
+                   ImageOpened="OnImageOpened"
+                   />
+            <ProgressRing Width="100" Height="100"
+                          VerticalAlignment="Center" HorizontalAlignment="Center"
+                          Visibility="{Binding IsDownloading, Converter={StaticResource VisibleConverter} }"
+                          IsActive="{Binding IsDownloading}" 
+                          />
+        </Grid>
+
+    </StackPanel>
+</Page>
